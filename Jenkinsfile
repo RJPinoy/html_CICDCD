@@ -9,5 +9,10 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/fredericBui/html_CICDCD.git'
             }
         }
+        stage('Continuous Delivery') {
+            steps {
+                sh 'docker build . -t beauty'
+            }
+        }
     }
 }
