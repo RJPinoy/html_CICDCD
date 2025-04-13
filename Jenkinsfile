@@ -11,7 +11,9 @@ pipeline {
         }
         stage('Continuous Delivery') {
             steps {
-                sh 'docker build . -t beauty'
+                sh 'docker build . -t fredericbui/html_cicdcd'
+                sh "docker login -u fredericbui -p ${DOCKER_PASSWORD}"
+                sh 'docker push fredericbui/html_cicdcd'
             }
         }
     }
